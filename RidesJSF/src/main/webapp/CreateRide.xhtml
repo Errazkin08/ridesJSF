@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Create Ride</title>
+		<h:outputStylesheet library="css" name="styles.css"/>
+	</h:head>
+	<h:body>
+	<div class="center">
+		<h:form>
+			<h1>Create Ride</h1>
+			<table>
+
+				<tr>
+					<td>DepartCity</td>
+					<td><h:inputText id="from" value="#{createRide.from}">
+							<f:validateRegex pattern="^[A-Z][a-z]+$" />
+						</h:inputText></td>
+						<td>
+					<h:message for="from" style="color:red" />
+				</td>
+				</tr>
+				
+				<tr>
+					<td>Arrival City:</td>
+					<td><h:inputText id="to" value="#{createRide.to}">
+							<f:validateRegex pattern="^[A-Z][a-z]+$" />
+						</h:inputText></td>
+					<td><h:message for="to" style="color:red" /></td>
+				</tr>
+
+				<tr>
+					<td>Number of Seats:</td>
+					<td><h:inputText id="seats" value="#{createRide.seats}">
+							<f:validateLongRange minimum="1" maximum="20"/>
+						</h:inputText></td>
+					<td><h:message for="seats" style="color:red" /></td>
+				</tr>
+
+				<tr>
+					<td>Price</td>
+					<td><h:inputText id="price" value="#{createRide.price}">
+							<f:validateLongRange minimum="0" maximum="49"/>
+						</h:inputText></td>
+					<td><h:message for="price" style="color:red" /></td>
+				</tr>
+
+
+
+				<tr>
+					<td>Date:</td>
+						<td><p:calendar id="date" value="#{createRide.date}" navigator="false" mode="inline">
+								
+							</p:calendar></td>
+				</tr>
+			</table>
+			<h:commandButton value="Create Ride" id="createRide"
+				action="#{createRide.createRide}" styleClass="customButton">
+				
+			</h:commandButton>
+			<h:commandButton value="Return" id="return"
+				action="#{createRide.main}" styleClass="customButton">
+				
+			</h:commandButton>
+				<h:message id="cRMezu" for="createRide" style="color:red" />
+		<h:messages id="mezuak" style="color:blue" />
+		</h:form>
+		</div>
+	</h:body>
+</f:view>
+</html>

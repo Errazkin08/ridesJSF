@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+	<h:head>
+		<title>Rides24JSF</title>
+		<h:outputStylesheet library="css" name="styles.css"/>
+	</h:head>
+	<h:body>
+	<div class="center">
+	<h:form>
+	<h1>Select an Option:</h1>
+		<p>
+			<h:commandButton value="Create Ride" action="#{main.create}" styleClass="customButton"/>
+		</p>
+		
+		<p>
+			<h:commandButton value="Query Ride" action="#{main.query}" styleClass="customButton" />
+		</p>
+		<p>
+			<h:commandButton value="Show Queried Ride" action="#{main.showQuery}" styleClass="customButton" />
+		</p>
+		<p>
+			<h:commandButton value="Login" action="#{main.login}" styleClass="customButton"/>
+		</p>
+		<p>
+			<h:commandButton value="Register" action="#{main.register}" styleClass="customButton" />
+		</p>
+		<p>
+			<h:commandButton value="Log Out" action="#{main.logout}" styleClass="customButton" />
+		</p>
+		<p>
+			<h:commandButton value="Show all the Rides of a Date" action="#{main.ridesDate}" styleClass="customButton" />
+		</p>
+		<h:messages id="mezuak" style="color:blue" />
+	</h:form>
+	</div>
+	</h:body>
+</f:view>
+</html>

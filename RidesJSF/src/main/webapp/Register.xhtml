@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+	<h:head>
+		<title>Register</title>
+		<h:outputStylesheet library="css" name="styles.css"/>
+	</h:head>
+	<h:body>
+	<div class="center">
+		<h:form id="registrationForm">
+			<h:panelGrid columns="2">
+				<h:outputLabel for="email">Email:</h:outputLabel>
+				<h:inputText id="email" value="#{registrationBean.email}">
+					<f:validateRegex
+						pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+				</h:inputText>
+				
+				
+				<h:outputLabel for="name">Name:</h:outputLabel>
+				<h:inputText id="name" value="#{registrationBean.name}">
+					<f:validateRegex pattern="^[A-Z][a-z]+$" />
+				</h:inputText>
+				
+				
+				<h:outputLabel for="password">Password:</h:outputLabel>
+				<h:inputSecret id="password" value="#{registrationBean.password}" />
+				
+				<h:outputLabel for="userType">User Type:</h:outputLabel>
+				<h:selectOneMenu id="userType" value="#{registrationBean.userType}">
+					<f:selectItem itemValue="Driver" itemLabel="Driver" />
+					<f:selectItem itemValue="User" itemLabel="User" />
+				</h:selectOneMenu>
+			</h:panelGrid>
+			<h:commandButton value="Register"
+				action="#{registrationBean.register}" class="customButton"/>
+			<h:commandButton value="Return" action="#{registrationBean.main}" styleClass="customButton"/>
+			<h:messages id="mezuak" style="color:blue" />
+		</h:form>
+		</div>
+	</h:body>
+	
+</f:view>
+</html>

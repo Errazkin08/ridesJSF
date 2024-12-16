@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Query Ride</title>
+		<h:outputStylesheet library="css" name="styles.css" />
+	</h:head>
+	<h:body>
+		<div class="center">
+			<h:form>
+				<h1>Query Ride</h1>
+				<table>
+
+					<tr>
+						<td><h3>Departing City:</h3></td>
+						<td><h:selectOneMenu value="#{queryRide.departCity}">
+								<f:selectItems value="#{queryRide.dCity}" />
+								<f:ajax event="click" listener="#{queryRide.listenerDepart}"
+									render="arrivingCity" />
+							</h:selectOneMenu></td>
+					</tr>
+
+					<tr>
+						<td><h3>Arriving City:</h3></td>
+						<td><h:selectOneMenu id="arrivingCity"
+								value="#{queryRide.arrivalCity}">
+								<f:selectItems value="#{queryRide.aCity}" />
+								<f:ajax event="click" listener="#{queryRide.listenerArrival}"
+									render="date" />
+							</h:selectOneMenu></td>
+					</tr>
+					<tr>
+						<td>Date:</td>
+						<td><p:calendar id="date" value="#{queryRide.date}"
+								navigator="false" mode="inline">
+								<f:ajax event="click" listener="#{queryRide.listenerDate}"
+									render="taula" />
+
+							</p:calendar></td>
+					</tr>
+					<tr>
+						<td><h:commandButton value="Search Ride" id="searchRide"
+								class="customButton">
+								<f:ajax event="change" render="taula" />
+							</h:commandButton></td>
+					</tr>
+
+
+					<tr>
+						<td><h:dataTable id="taula" value="#{queryRide.rides}"
+								var="r" border="1">
+								<f:facet name="header">Rides</f:facet>
+								<h:column>
+									<f:facet name="header">From</f:facet>
+#{r.getFrom()}
+</h:column>
+								<h:column>
+									<f:facet name="header">To</f:facet>
+#{r.getTo()}
+</h:column>
+
+								<h:column>
+									<f:facet name="header">Driver</f:facet>
+#{r.driver.getName()}
+</h:column>
+								<h:column>
+									<f:facet name="header">Price</f:facet>
+#{r.getPrice()}
+</h:column>
+								<h:column>
+									<f:facet name="header">Places</f:facet>
+#{r.getnPlaces()}
+</h:column>
+								<h:column>
+									<f:facet name="header"></f:facet>
+									<h:commandButton value="Aukeratu" action="#{queryRide.chooseRide(r)}" />
+								</h:column>
+							</h:dataTable></td>
+					</tr>
+				</table>
+				<td>Number of Seats:</td>
+				<td><h:inputText id="seats" value="#{queryRide.places}">
+						
+					</h:inputText></td>
+				<td><h:message for="seats" style="color:red" /></td>
+
+				<td><h:commandButton value="Book the Ride" action="#{queryRide.book}"
+						styleClass="customButton" render="taula" /></td>
+
+				<p>
+					<h:commandButton value="Return" action="#{queryRide.main}"
+						styleClass="customButton" />
+				</p>
+
+				<h:messages id="mezuak" style="color:blue" />
+			</h:form>
+		</div>
+	</h:body>
+</f:view>
+</html>

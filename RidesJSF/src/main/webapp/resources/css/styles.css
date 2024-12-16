@@ -1,0 +1,194 @@
+/* Reset and Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container for forms and content */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.center{
+	align-items:center;
+}
+
+/* Headings */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+/* Form Styles */
+form {
+    width: 100%;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+}
+
+table tr {
+    margin-bottom: 10px;
+}
+
+table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+
+input[type="text"], 
+input[type="password"], 
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+rgb(128, 255, 0)rgb(0, 255, 64)input[type="text"]:focus, 
+input[type="password"]:focus, 
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Button Styles */
+.commandButton {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 16px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.commandButton:hover {
+    background-color: #2980b9;
+}
+
+/* Message Styles */
+.messages {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.messages.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+.messages.info {
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px solid #bce8f1;
+}
+
+/* DataTable Styles */
+.dataTable {
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.dataTable th {
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.dataTable td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dataTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.dataTable tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Calendar Styles */
+.calendar {
+    display: inline-block;
+    margin: 15px 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    table, 
+    table tbody, 
+    table tr, 
+    table td {
+        display: block;
+        width: 100%;
+    }
+
+    input[type="text"], 
+    input[type="password"], 
+    select {
+        width: 100%;
+    }
+}
+
+/* Validation Message Styles */
+.validationMessage {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+.customButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #00ffff; /* Cyan */
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.customButton:hover {
+    background-color: #00ff80; 
+}

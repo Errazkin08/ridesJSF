@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Query Ride</title>
+		<h:outputStylesheet library="css" name="styles.css" />
+	</h:head>
+	<h:body>
+		<div class="center">
+			<h:form>
+				<h1>All the rides of that date:</h1>
+				<table>
+
+					<tr>
+						<td><h:dataTable id="taula" value="#{dataTable.rides}"
+								var="r" border="1">
+								<f:facet name="header">Rides</f:facet>
+								<h:column>
+									<f:facet name="header">Depart city</f:facet>
+#{r.getFrom()}
+</h:column>
+								<h:column>
+									<f:facet name="header">Arrival city</f:facet>
+#{r.getTo()}
+</h:column>
+
+								<h:column>
+									<f:facet name="header">Driver name</f:facet>
+#{r.driver.getName()}
+</h:column>
+								<h:column>
+									<f:facet name="header">Price</f:facet>
+#{r.getPrice()}
+</h:column>
+							</h:dataTable></td>
+					</tr>
+				</table>
+
+				<p>
+					<h:commandButton value="Go to Main" action="#{dataTable.main}"
+						styleClass="customButton" />
+				</p>
+
+				<h:messages id="mezuak" style="color:blue" />
+			</h:form>
+		</div>
+	</h:body>
+</f:view>
+</html>

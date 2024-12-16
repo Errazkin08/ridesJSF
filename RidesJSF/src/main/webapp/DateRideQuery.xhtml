@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Query Ride</title>
+		<h:outputStylesheet library="css" name="styles.css" />
+	</h:head>
+	<h:body>
+		<div class="center">
+			<h:form>
+				<h1>Date Ride Query</h1>
+				<table>
+					<tr>
+						<td>Date:</td>
+						<td><p:calendar id="date" value="#{dateRide.date}"
+								navigator="false" mode="inline">
+							</p:calendar></td>
+					</tr>
+					<tr>
+						<td><h:commandButton value="Search Ride" id="searchRide"
+								class="customButton" action="#{dateRide.search}">
+							</h:commandButton></td>
+					</tr>
+				</table>
+				<h:messages id="mezuak" style="color:blue" />
+			</h:form>
+		</div>
+	</h:body>
+</f:view>
+</html>
